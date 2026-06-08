@@ -1,7 +1,11 @@
 import geopandas as gpd
 from shapely.geometry import Point
 
-from src.infra_analytics import accessibility_ratio, count_within_radius, unserved_trees
+from src.infra_analytics import (
+    accessibility_ratio,
+    count_within_radius,
+    unserved_trees,
+)
 
 
 def main():
@@ -63,9 +67,11 @@ def main():
     print(f"Доля деревьев с доступной инфраструктурой: {ratio:.2%}")
 
     print("\n" + "=" * 60)
-    print("Успешно!")
+    print("Все примеры успешно выполнены!")
     print("=" * 60)
 
 
 if __name__ == "__main__":
     main()
+
+    

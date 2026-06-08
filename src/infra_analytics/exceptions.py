@@ -1,37 +1,18 @@
-"""Custom exceptions for infra_analytics package."""
+class EmptyDataError(Exception):
+    """Raised when input GeoDataFrame is empty."""
+    pass
 
 
 class InvalidCRSError(Exception):
-    """Error: Invalid Coordinate Reference System (CRS)."""
-
-    pass
-
-
-class InvalidTreeDataError(Exception):
-    """Error: Invalid tree data."""
-
-    pass
-
-
-class InvalidLocationError(Exception):
-    """Error: Invalid location/coordinates."""
-
+    """Raised when CRS is not valid or missing."""
     pass
 
 
 class InvalidRadiusError(Exception):
-    """Error: Invalid radius."""
-
+    """Raised when radius is negative or zero."""
     pass
 
 
-class TreeDataError(Exception):
-    """Error: Invalid tree data."""
-
-    pass
-
-
-class PredictionError(Exception):
-    """Error: Failed to perform prediction."""
-
+class InvalidTreeDataError(Exception):
+    """Raised when tree data contains invalid values."""
     pass
