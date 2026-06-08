@@ -1,9 +1,8 @@
-def add(a: int, b: int) -> int:
-    """Add one in to another
-    Args:
-        a (int): num 1
-        b (int): num 2
-    Returns:
-        int: result a + b
-    """
-    return a + b
+"""Test module - re-exports functions from core."""
+
+from src.infra_analytics.core.tree_metrics import (
+    HealthStatus,
+    calculate_infrastructure_score,
+    get_health_status,
+    predict_growth,
+)
