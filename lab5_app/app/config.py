@@ -4,10 +4,10 @@ class AppConfig:
     def __init__(
         self,
         app_name: str = "Green Infrastructure API",
-        app_version: str = "1.0.0",
+        app_version: str = "0.1.0",
         app_description: str = "API for analyzing infrastructure accessibility for green spaces (trees)",
         app_authors: list = ["ViolettaZim"],
-        contact_email: str = "violetta@greeninfra.com",
+        contact_email: str = "viozim@ya.ru",
         license_name: str = "MIT",
     ):
         self._app_name = app_name

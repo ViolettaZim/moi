@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
 
-from ..config import app_config
-from ..models import RuntimeConfig
-from ..services import RuntimeConfigService
+from config import app_config
+from models import RuntimeConfig
+from services import RuntimeConfigService
 
 router = APIRouter(prefix="/config", tags=["Configuration"])
 config_service = RuntimeConfigService()
@@ -50,5 +50,4 @@ async def update_runtime_config(new_config: RuntimeConfig):
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to update configuration: {str(e)}")
-    
     
