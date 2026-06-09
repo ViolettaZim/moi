@@ -1,8 +1,8 @@
 from fastapi import APIRouter, HTTPException
 
-from config import app_config
-from models import RuntimeConfig
-from services import RuntimeConfigService
+from ..config import app_config
+from ..models import RuntimeConfig
+from ..services import RuntimeConfigService
 
 router = APIRouter(prefix="/config", tags=["Configuration"])
 config_service = RuntimeConfigService()
