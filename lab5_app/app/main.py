@@ -27,5 +27,6 @@ async def root():
 async def startup_event():
     """Actions to perform on application startup."""
     print(f"Starting {app_config.app_name} v{app_config.app_version}")
-    print(f" {app_config.app_description}")
+    print(f"{app_config.app_description}")
+
     
