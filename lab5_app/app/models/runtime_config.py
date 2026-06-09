@@ -22,5 +22,4 @@ class RuntimeConfig(BaseModel):
                 "min_tree_diameter": 15.0,
             }
         }
-
         
