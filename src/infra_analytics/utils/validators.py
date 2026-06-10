@@ -1,6 +1,13 @@
+"""Validation utilities for infra_analytics library."""
+
 import geopandas as gpd
 
-from ..exceptions import EmptyDataError, InvalidCRSError, InvalidRadiusError
+from ..exceptions import (
+    EmptyDataError,
+    InvalidCRSError,
+    InvalidRadiusError,
+    InvalidTreeDataError,
+)
 
 
 def validate_not_empty(gdf: gpd.GeoDataFrame, name: str) -> None:
@@ -21,9 +28,16 @@ def validate_radius(radius: float) -> None:
         raise InvalidRadiusError(f"Radius must be positive. Got: {radius}")
 
 
+def validate_tree_metrics(diameter: float, height: float) -> None:
+    """Validate tree biometric parameters."""
+    if diameter < 0:
+        raise InvalidTreeDataError(f"Tree diameter cannot be negative: {diameter}")
+    if height < 0:
+        raise InvalidTreeDataError(f"Tree height cannot be negative: {height}")
+
+
 def ensure_metric_crs(gdf: gpd.GeoDataFrame) -> gpd.GeoDataFrame:
     """Convert GeoDataFrame to metric CRS if not already."""
     if gdf.crs and not gdf.crs.is_projected:
         gdf = gdf.to_crs("EPSG:32631")
     return gdf
-
