@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "infra-analyticsFastAPIapp"
+version = "0.1.2"
+description = "Library for green infrastructure analysis"
+authors = ["ViolettaZim"]
+license = "MIT"
+readme = "README.md"
+packages = [
+    { include = "common" },
+    { include = "routers" },
+    { include = "services" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.136.0"
+uvicorn = "^0.49.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+black = "^24.0.0"
+isort = "^5.13.0"
+pre-commit = "^3.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
