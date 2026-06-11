@@ -1,0 +1,18 @@
+services:
+  db:
+    image: postgis/postgis:16-3.4
+    container_name: green_db
+    environment:
+      POSTGRES_DB: green_db
+      POSTGRES_USER: green_user
+      POSTGRES_PASSWORD: green_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - green_pg_data:/var/lib/postgresql/data
+
+volumes:
+  green_pg_data:
+  
+
+  
