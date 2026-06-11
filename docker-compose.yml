@@ -13,6 +13,9 @@ services:
 
 volumes:
   green_pg_data:
+<<<<<<< Updated upstream
   
 
+=======
+>>>>>>> Stashed changes
   
