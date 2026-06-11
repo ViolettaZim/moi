@@ -49,6 +49,5 @@ async def update_runtime_config(new_config: RuntimeConfig):
             "config": updated_config.model_dump(),
         }
     except Exception as e:
-        raise HTTPException(
-            status_code=500, detail=f"Failed to update configuration: {str(e)}"
-        )
+        raise HTTPException(status_code=500, detail=f"Failed to update configuration: {str(e)}")
+    

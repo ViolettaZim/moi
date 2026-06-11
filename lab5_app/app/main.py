@@ -1,18 +1,7 @@
-from contextlib import asynccontextmanager
-
-from app.config import app_config
-from app.routes import router
 from fastapi import FastAPI
 
-
-@asynccontextmanager
-async def lifespan(app: FastAPI):
-    """Manage application lifecycle (startup and shutdown events)."""
-    print(f"Starting {app_config.app_name} v{app_config.app_version}")
-    print(f"{app_config.app_description}")
-
-    yield
-
+from .config import app_config
+from .routes import router
 
 app = FastAPI(
     title=app_config.app_name,
@@ -20,11 +9,9 @@ app = FastAPI(
     description=app_config.app_description,
     contact={"email": app_config.contact_email} if app_config.contact_email else None,
     license_info={"name": app_config.license_name} if app_config.license_name else None,
-    lifespan=lifespan,
 )
 
 app.include_router(router)
-
 
 @app.get("/")
 async def root():
@@ -34,3 +21,12 @@ async def root():
         "version": app_config.app_version,
         "docs_url": "/docs",
     }
+
+
+@app.on_event("startup")
+async def startup_event():
+    """Actions to perform on application startup."""
+    print(f"Starting {app_config.app_name} v{app_config.app_version}")
+    print(f"{app_config.app_description}")
+
+    

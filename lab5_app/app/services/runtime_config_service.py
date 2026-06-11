@@ -21,3 +21,5 @@ class RuntimeConfigService:
         """Update runtime configuration."""
         self._config = new_config
         return self._config
+    
+    

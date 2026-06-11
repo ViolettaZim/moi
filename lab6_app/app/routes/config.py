@@ -1,13 +1,19 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
 class AppConfig:
     """Static configuration that only changes on app restart."""
 
     def __init__(
         self,
-        app_name: str = "Green Infrastructure API",
-        app_version: str = "0.1.0",
-        app_description: str = "API for analyzing infrastructure accessibility for green spaces (trees)",
+        app_name: str = os.getenv("APP_NAME", "Green Infrastructure API"),
+        app_version: str = os.getenv("APP_VERSION", "1.0.0"),
+        app_description: str = os.getenv("APP_DESCRIPTION", "API for analyzing infrastructure accessibility for green spaces (trees)"),
         app_authors: list = ["ViolettaZim"],
-        contact_email: str = "viozim@ya.ru",
+        contact_email: str = "violetta@greeninfra.com",
         license_name: str = "MIT",
     ):
         self._app_name = app_name
@@ -42,7 +48,6 @@ class AppConfig:
         return self._license_name
 
     def to_dict(self) -> dict:
-        """Return configuration as dictionary."""
         return {
             "app_name": self._app_name,
             "app_version": self._app_version,
@@ -51,7 +56,7 @@ class AppConfig:
             "contact_email": self._contact_email,
             "license_name": self._license_name,
         }
-   
-    
+
+
 app_config = AppConfig()
 
