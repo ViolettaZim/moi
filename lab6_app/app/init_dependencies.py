@@ -1,4 +1,4 @@
-from .config import app_config as static_config
+from .routes.config import app_config as static_config
 from .schemas.app_config import AppConfigModel
 from .schemas.runtime_config import RuntimeConfigModel
 from .services.runtime_config_service import RuntimeConfigService
